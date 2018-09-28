@@ -1,0 +1,16 @@
+server:
+  port: 9001 #指定服务端口
+  
+spring:
+  application:
+    name: @pom.artifactId@
+
+
+eureka:
+  instance:
+    hostname: localhost #设置当前实例的主机名称
+  client:
+    registerWithEureka: false #是否将eureka自身作为应用注册到eureka注册中心，false表示当前服务不需要到eureka服务上注册，自身就是服务（单机），true表示将自己注册（集群），默认true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #当registerWithEureka为true时把自己注册到哪
