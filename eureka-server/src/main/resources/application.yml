@@ -10,8 +10,8 @@ eureka:
     hostname: ${spring.cloud.client.ip-address} #设置当前实例的主机名称
     prefer-ip-address: true #默认false，=true时，注册到Eureka Server上的是IP
   client:
-    registerWithEureka: false #是否将eureka自身作为应用注册到eureka注册中心，false表示当前服务不需要到eureka服务上注册，自身就是服务（单机），true表示将自己注册（集群），默认true
-    fetchRegistry: false #是否拉取eureka服务器注册表上的注册信息，默认是true
+    #registerWithEureka: false #是否将eureka自身作为应用注册到eureka注册中心，false表示当前服务不需要到eureka服务上注册，自身就是服务（单机），true表示将自己注册（集群），默认true
+    #fetchRegistry: false #是否拉取eureka服务器注册表上的注册信息，默认是true，集群模式下需要修改为true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #指定服务注册中心的位置，单机模式
-      #defaultZone:  http://ip:port/eureka/,http://ip:port/eureka/,... #指定服务注册中心的位置，集群模式
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #指定服务注册中心的位置，单机模式
+      defaultZone:  http://10.1.4.130:9001/eureka/,http://10.1.4.131:9001/eureka/,http://10.1.4.132:9001/eureka/ #指定服务注册中心的位置，集群模式

@@ -9,4 +9,5 @@ eureka:
   client:
     registerWithEureka: false #是否将eureka自身作为应用注册到eureka注册中心，false表示当前服务不需要到eureka服务上注册，自身就是服务（单机），true表示将自己注册（集群），默认true
     serviceUrl:
-      defaultZone: http://localhost:9001/eureka/
+      #defaultZone: http://localhost:9001/eureka/
+      defaultZone: http://10.1.4.130:9001/eureka/,http://10.1.4.131:9001/eureka/,http://10.1.4.132:9001/eureka/ #集群模式
